@@ -1,0 +1,45 @@
+{
+  "name": "@your-org/toast-notifications",
+  "version": "1.0.0",
+  "description": "A modern, feature-rich toast notification library for React with TypeScript support",
+  "author": "Your Organization",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "toast",
+    "notifications",
+    "typescript",
+    "alert",
+    "message"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/toast-notifications"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/toast-notifications/issues"
+  },
+  "homepage": "https://github.com/your-org/toast-notifications#readme"
+}
