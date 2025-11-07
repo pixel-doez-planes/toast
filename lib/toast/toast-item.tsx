@@ -25,10 +25,10 @@ const variantIcons = {
 };
 
 const variantStyles = {
-  success: "bg-green-50 dark:bg-green-950/30 border-l-4 border-l-green-500",
-  error: "bg-red-50 dark:bg-red-950/30 border-l-4 border-l-red-500",
-  warning: "bg-amber-50 dark:bg-amber-950/30 border-l-4 border-l-amber-500",
-  info: "bg-blue-50 dark:bg-blue-950/30 border-l-4 border-l-blue-500",
+  success: "bg-muted dark:bg-green-950/30 border-l-4 border-l-green-500",
+  error: "bg-muted dark:bg-red-950/30 border-l-4 border-l-red-500",
+  warning: "bg-muted dark:bg-amber-950/30 border-l-4 border-l-amber-500",
+  info: "bg-muted dark:bg-blue-950/30 border-l-4 border-l-blue-500",
   loading: "bg-muted border-l-4 border-l-primary",
 };
 
