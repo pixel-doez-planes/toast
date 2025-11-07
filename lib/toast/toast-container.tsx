@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Toast, ToastPosition } from "@shared/toast-types";
 import { toastManager } from "./toast-manager";
 import { ToastItem } from "./toast-item";
@@ -10,12 +11,21 @@ interface ToastContainerProps {
 }
 
 const positionStyles: Record<ToastPosition, string> = {
-  "top-left": "top-6 left-6",
-  "top-center": "top-6 left-0 right-0 flex-col items-center",
-  "top-right": "top-6 right-6",
-  "bottom-left": "bottom-6 left-6",
-  "bottom-center": "bottom-6 left-0 right-0 flex-col items-center",
-  "bottom-right": "bottom-6 right-6",
+  "top-left": "flex-col",
+  "top-center": "flex-col items-center",
+  "top-right": "flex-col",
+  "bottom-left": "flex-col-reverse",
+  "bottom-center": "flex-col-reverse items-center",
+  "bottom-right": "flex-col-reverse",
+};
+
+const positionInlineStyles: Record<ToastPosition, React.CSSProperties> = {
+  "top-left": { top: "1.5rem", left: "1.5rem" },
+  "top-center": { top: "1.5rem", left: 0, right: 0 },
+  "top-right": { top: "1.5rem", right: "1.5rem" },
+  "bottom-left": { bottom: "1.5rem", left: "1.5rem" },
+  "bottom-center": { bottom: "1.5rem", left: 0, right: 0 },
+  "bottom-right": { bottom: "1.5rem", right: "1.5rem" },
 };
 
 export function ToastContainer({ position = "top-right" }: ToastContainerProps) {
@@ -37,15 +47,16 @@ export function ToastContainer({ position = "top-right" }: ToastContainerProps) 
     return acc;
   }, {} as Record<ToastPosition, Toast[]>);
 
-  return (
+  const content = (
     <>
       {Object.entries(toastsByPosition).map(([pos, posToasts]) => (
         <div
           key={pos}
           className={cn(
-            "pointer-events-none fixed z-[100] flex max-h-screen flex-col gap-2 overflow-hidden",
+            "pointer-events-none fixed z-[100] flex max-h-screen gap-2 overflow-hidden",
             positionStyles[pos as ToastPosition]
           )}
+          style={positionInlineStyles[pos as ToastPosition]}
           data-testid={`toast-container-${pos}`}
         >
           {posToasts.map((toast) => (
@@ -60,4 +71,8 @@ export function ToastContainer({ position = "top-right" }: ToastContainerProps) 
       ))}
     </>
   );
+
+  return typeof document !== "undefined"
+    ? createPortal(content, document.body)
+    : null;
 }

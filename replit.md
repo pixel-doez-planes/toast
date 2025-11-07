@@ -127,7 +127,12 @@ import { toast } from 'https://cdn.jsdelivr.net/npm/@your-org/toast-notification
   - Resolved React state management by implementing proper object/array cloning
   - Added 6 positioning options with separate containers per position
   - Integrated library into demo website with interactive controls
-- 2024-11-06: **Project complete and ready for publishing**
+- 2024-11-07: **Critical positioning fixes**
+  - Implemented React portal (`createPortal`) to render toasts directly into `document.body`
+  - Added inline styles for explicit positioning to ensure viewport-relative placement
+  - Fixed bottom positions to use `flex-col-reverse` for proper upward stacking
+  - Verified all 6 positions work correctly with e2e tests
+- 2024-11-07: **Project complete and ready for publishing**
 
 ## Technical Implementation Notes
 
@@ -143,8 +148,12 @@ import { toast } from 'https://cdn.jsdelivr.net/npm/@your-org/toast-notification
 - Each toast has unique ID, variant, message, options, and isExiting state
 
 ### Positioning Architecture
+- **Portal Rendering**: Toast containers rendered via React `createPortal` directly into `document.body` to ensure fixed positioning works correctly
+- **Inline Styles**: Explicit CSS positioning (top/bottom/left/right) via inline styles ensures positioning works regardless of Tailwind
 - Separate containers rendered for each position with active toasts
 - Toasts grouped by their `position` option
+- **Top positions**: Use `flex-col` - new toasts appear below existing ones (stack grows downward)
+- **Bottom positions**: Use `flex-col-reverse` - toasts stack from bottom upward (visually grow upward)
 - Center positions use flexbox centering, side positions use fixed offsets
 - Stack management with consistent 8px gap between toasts
 
