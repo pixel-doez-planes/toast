@@ -1,8 +1,8 @@
 {
-  "name": "@your-org/toast-notifications",
+  "name": "pixel-doez-planes",
   "version": "1.0.0",
   "description": "A modern, feature-rich toast notification library for React with TypeScript support",
-  "author": "Your Organization",
+  "author": "",
   "license": "MIT",
   "keywords": [
     "react",
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/toast-notifications"
+    "url": "https://github.com/pixel-doez-planes/pixel-doez-planes"
   },
   "bugs": {
-    "url": "https://github.com/your-org/toast-notifications/issues"
+    "url": "https://github.com/pixel-doez-planes/pixel-doez-planes/issues"
   },
-  "homepage": "https://github.com/your-org/toast-notifications#readme"
+  "homepage": "https://github.com/pixel-doez-planes/pixel-doez-planes#readme"
 }

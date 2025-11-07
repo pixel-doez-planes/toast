@@ -347,7 +347,7 @@ export default function Home() {
                 <div>
                   <h3 className="mb-3 text-xl font-semibold">Via npm</h3>
                   <CodeBlock
-                    code="npm install @your-org/toast-notifications"
+                    code="npm install pixel-doez-planes"
                     language="bash"
                   />
                 </div>
@@ -355,7 +355,7 @@ export default function Home() {
                 <div>
                   <h3 className="mb-3 text-xl font-semibold">Via CDN</h3>
                   <CodeBlock
-                    code={`import { toast, ToastContainer } from 'https://cdn.jsdelivr.net/npm/@your-org/toast-notifications/dist/index.esm.js';`}
+                    code={`import { toast, ToastContainer } from 'https://cdn.jsdelivr.net/npm/pixel-doez-planes/dist/index.esm.js';`}
                     language="javascript"
                   />
                 </div>
@@ -363,8 +363,8 @@ export default function Home() {
                 <div>
                   <h3 className="mb-3 text-xl font-semibold">Quick Start</h3>
                   <CodeBlock
-                    code={`import { toast, ToastContainer } from '@your-org/toast-notifications';
-import '@your-org/toast-notifications/dist/style.css';
+                    code={`import { toast, ToastContainer } from 'pixel-doez-planes';
+import 'pixel-doez-planes/dist/style.css';
 
 function App() {
   return (

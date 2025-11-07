@@ -106,12 +106,12 @@ toast.dismiss(toastId); // Dismiss specific
 
 ### Via npm
 ```bash
-npm install @your-org/toast-notifications
+npm install pixel-doez-planes
 ```
 
 ### Via CDN
 ```javascript
-import { toast } from 'https://cdn.jsdelivr.net/npm/@your-org/toast-notifications/dist/index.esm.js';
+import { toast } from 'https://cdn.jsdelivr.net/npm/pixel-doez-planes/dist/index.esm.js';
 ```
 
 ## Recent Changes

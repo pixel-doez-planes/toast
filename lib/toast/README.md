@@ -19,20 +19,20 @@ A modern, feature-rich toast notification library for React with TypeScript supp
 ### Via npm
 
 ```bash
-npm install @your-org/toast-notifications
+npm install pixel-doez-planes
 ```
 
 ### Via CDN
 
 ```javascript
-import { toast, ToastContainer } from 'https://cdn.jsdelivr.net/npm/@your-org/toast-notifications/dist/index.esm.js';
+import { toast, ToastContainer } from 'https://cdn.jsdelivr.net/npm/pixel-doez-planes/dist/index.esm.js';
 ```
 
 ## Quick Start
 
 ```tsx
-import { toast, ToastContainer } from '@your-org/toast-notifications';
-import '@your-org/toast-notifications/dist/style.css';
+import { toast, ToastContainer } from 'pixel-doez-planes';
+import 'pixel-doez-planes/dist/style.css';
 
 function App() {
   return (
@@ -149,7 +149,7 @@ type ToastPosition =
 This library is written in TypeScript and includes complete type definitions.
 
 ```typescript
-import { toast, ToastOptions, ToastPosition } from '@your-org/toast-notifications';
+import { toast, ToastOptions, ToastPosition } from 'pixel-doez-planes';
 
 const options: ToastOptions = {
   duration: 5000,
@@ -161,4 +161,4 @@ toast.success('Typed toast!', options);
 
 ## License
 
-MIT © Your Organization
+MIT
