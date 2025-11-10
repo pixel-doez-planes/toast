@@ -5,14 +5,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ToastContainer } from "../../lib/toast";
 import Home from "@/pages/home";
-import CodeInterpreter from "@/pages/code-interpreter";
+import Playground from "@/pages/playground"
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/interpreter" component={CodeInterpreter} />
+      <Route path="/playground" component={Playground} />
       <Route component={NotFound} />
     </Switch>
   );
