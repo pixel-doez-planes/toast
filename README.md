@@ -32,7 +32,7 @@ import { toast, ToastContainer } from 'https://cdn.jsdelivr.net/npm/pixel-doez-p
 
 ```tsx
 import { toast, ToastContainer } from 'pixel-doez-planes';
-import 'pixel-doez-planes/dist/style.css';
+import 'pixel-doez-planes/style.css';
 
 function App() {
   return (
