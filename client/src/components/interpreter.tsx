@@ -5,6 +5,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { toast } from "pixel-doez-planes";
+import "pixel-doez-planes/style.css";
 
 interface OutputLine {
   type: 'input' | 'output' | 'error';
@@ -12,16 +14,46 @@ interface OutputLine {
 }
 
 const CODE_EXAMPLES = {
-  javascript: `// JavaScript Example
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
+  javascript: `// Toast Library Testing Examples
+// Try these commands:
 
-console.log("Fibonacci sequence:");
-for (let i = 0; i < 10; i++) {
-  console.log(\`F(\${i}) = \${fibonacci(i)}\`);
-}`,
+// Basic toasts
+toast({ title: "Success!", variant: "success" });
+toast({ title: "Error!", variant: "error" });
+toast({ title: "Warning!", variant: "warning" });
+toast({ title: "Info", variant: "info" });
+toast({ title: "Loading...", variant: "loading" });
+
+// With description
+toast({ 
+  title: "Upload Complete",
+  description: "Your file has been uploaded.",
+  variant: "success"
+});
+
+// Custom options
+toast({
+  title: "Custom Position",
+  description: "This appears at the top center",
+  variant: "info",
+  duration: 5000,
+  position: "top-center"
+});
+
+// Promise API
+const myPromise = new Promise(resolve => 
+  setTimeout(() => resolve("Done!"), 2000)
+);
+toast({
+  title: "Loading",
+  variant: "loading",
+  promise: {
+    promise: myPromise,
+    loading: "Processing...",
+    success: "Operation complete!",
+    error: "Operation failed!"
+  }
+});`,
   python: `# Python Example
 def fibonacci(n):
     if n <= 1:
@@ -47,11 +79,13 @@ export function Interpreter() {
   const [input, setInput] = useState("");
   const [language, setLanguage] = useState("javascript");
   const [history, setHistory] = useState<OutputLine[]>([
-    { type: 'output', content: 'Welcome to the Code Interpreter! Type your code and press Enter to execute.' }
+    { type: 'output', content: 'Welcome to Toast Library Testing Console!' },
+    { type: 'output', content: 'The "toast" object from pixel-doez-planes is available.' },
+    { type: 'output', content: 'Try: toast.success("Hello World!")' }
   ]);
   const outputRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { toast } = useToast();
+  const { toast: shadcnToast } = useToast();
 
   useEffect(() => {
     if (outputRef.current) {
@@ -83,7 +117,14 @@ export function Interpreter() {
         };
 
         try {
-          const result = eval(code);
+          // Make toast available in eval context
+          const wrappedCode = `
+            (function() {
+              const toast = window.__toastLib__;
+              ${code}
+            })()
+          `;
+          const result = eval(wrappedCode);
           if (result !== undefined) {
             logs.push(String(result));
           }
@@ -126,10 +167,11 @@ export function Interpreter() {
 
   const handleClear = () => {
     setHistory([
-      { type: 'output', content: 'Console cleared. Ready for new commands.' }
+      { type: 'output', content: 'Console cleared. Ready for new commands.' },
+      { type: 'output', content: 'Try: toast.success("Hello World!")' }
     ]);
     setInput("");
-    toast({
+    shadcnToast({
       title: "Cleared",
       description: "Console has been cleared",
     });
@@ -137,10 +179,22 @@ export function Interpreter() {
 
   const handleLanguageChange = (value: string) => {
     setLanguage(value);
+    const welcomeMsg = value === "javascript" || value === "typescript"
+      ? 'The "toast" object from pixel-doez-planes is available.'
+      : `${value.toUpperCase()} execution requires backend service`;
     setHistory([
-      { type: 'output', content: `Language changed to ${value.toUpperCase()}. Ready for commands.` }
+      { type: 'output', content: `Language changed to ${value.toUpperCase()}.` },
+      { type: 'output', content: welcomeMsg }
     ]);
   };
+
+  // Make toast library available globally for eval context
+  useEffect(() => {
+    (window as any).__toastLib__ = toast;
+    return () => {
+      delete (window as any).__toastLib__;
+    };
+  }, []);
 
   return (
     <Card className="w-full">

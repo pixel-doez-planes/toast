@@ -1,8 +1,3 @@
 export { ToastContainer } from "./toast-container";
 export { toast, dismissToast } from "./toast-manager";
-export type {
-  Toast,
-  ToastOptions,
-  ToastPosition,
-  ToastVariant,
-} from "./types";
+export type { ToastOptions, ToastPosition, ToastVariant } from "@shared/toast-types";

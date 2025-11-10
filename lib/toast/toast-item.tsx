@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { Toast } from "@shared/toast-types";
+import type { Toast } from "./types";
 import {
   CheckCircle2,
   XCircle,
@@ -62,21 +62,28 @@ export function ToastItem({ toast, onDismiss, onRemove }: ToastItemProps) {
         "toast-item pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg border shadow-lg",
         variantStyles[toast.variant],
         toast.isExiting && "toast-exit",
-        toast.options.className
+        toast.className
       )}
-      style={toast.options.style}
+      style={toast.style}
       data-testid={`toast-${toast.variant}`}
     >
       <div className="flex items-start gap-3 p-4">
-        {toast.options.icon !== undefined ? (
-          toast.options.icon
+        {toast.icon !== undefined ? (
+          toast.icon
         ) : (
           <Icon className={cn("h-5 w-5 flex-shrink-0", iconStyles[toast.variant])} />
         )}
-        <div className="flex-1 text-sm font-medium text-foreground">
-          {toast.message}
+        <div className="flex-1">
+          <div className="text-sm font-semibold text-foreground">
+            {toast.title}
+          </div>
+          {toast.description && (
+            <div className="mt-1 text-sm text-muted-foreground">
+              {toast.description}
+            </div>
+          )}
         </div>
-        {toast.options.dismissible && (
+        {toast.dismissible && (
           <button
             onClick={handleDismiss}
             className="flex-shrink-0 rounded-md p-1 hover-elevate active-elevate-2 transition-colors"

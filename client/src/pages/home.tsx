@@ -24,35 +24,28 @@ import {
   Settings,
   MapPin,
 } from "lucide-react";
-import { toast, ToastPosition } from "../../../lib/toast";
+import { toast, type ToastPosition } from "pixel-doez-planes";
+import "pixel-doez-planes/style.css";
 
 export default function Home() {
   const [position, setPosition] = useState<ToastPosition>("bottom-right");
   const [duration, setDuration] = useState([4000]);
 
   const showToast = (type: "success" | "error" | "warning" | "info" | "loading") => {
-    const options = {
-      position,
-      duration: duration[0],
+    const messages = {
+      success: { title: "Success!", description: "Your changes have been saved." },
+      error: { title: "Error!", description: "Something went wrong." },
+      warning: { title: "Warning!", description: "Please check your input." },
+      info: { title: "Info", description: "Here's some helpful information." },
+      loading: { title: "Loading...", description: "Please wait." },
     };
 
-    switch (type) {
-      case "success":
-        toast.success("Success! Your changes have been saved.", options);
-        break;
-      case "error":
-        toast.error("Error! Something went wrong.", options);
-        break;
-      case "warning":
-        toast.warning("Warning! Please check your input.", options);
-        break;
-      case "info":
-        toast.info("Info: Here's some helpful information.", options);
-        break;
-      case "loading":
-        toast.loading("Loading... Please wait.", options);
-        break;
-    }
+    toast({
+      ...messages[type],
+      variant: type,
+      position,
+      duration: duration[0],
+    });
   };
 
   const showPromiseToast = () => {
@@ -60,18 +53,18 @@ export default function Home() {
       setTimeout(() => resolve("Success!"), 2000);
     });
 
-    toast.promise(
-      promise,
-      {
+    toast({
+      title: "Processing...",
+      variant: "loading",
+      position,
+      duration: duration[0],
+      promise: {
+        promise,
         loading: "Processing your request...",
         success: "Request completed successfully!",
         error: "Request failed. Please try again.",
       },
-      {
-        position,
-        duration: duration[0],
-      }
-    );
+    });
   };
 
   return (

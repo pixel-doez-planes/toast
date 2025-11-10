@@ -25,8 +25,16 @@ export default function Playground() {
     setOutput("");
   }
   return (
-    <div className="min-h-screen bg-background">
-      <Interpreter />
+    <div className="min-h-screen bg-background p-6">
+      <div className="container mx-auto max-w-5xl">
+        <div className="mb-6 text-center space-y-2">
+          <h1 className="text-3xl font-bold">Toast Library Playground</h1>
+          <p className="text-muted-foreground">
+            Test the <code className="px-1.5 py-0.5 rounded bg-muted">pixel-doez-planes</code> package in real-time
+          </p>
+        </div>
+        <Interpreter />
+      </div>
       <ToastContainer />
     </div>
   )
