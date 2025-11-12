@@ -44,6 +44,6 @@
   },
   "homepage": "https://github.com/pixel-doez-planes/pixel-doez-planes#readme",
   "dependencies": {
-    "pixel-doez-planes": "^1.2.2"
+    "pixel-doez-planes": "^2.0.0"
   }
 }
