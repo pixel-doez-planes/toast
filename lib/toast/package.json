@@ -29,6 +29,7 @@
   ],
   "scripts": {
     "build": "vite build",
+    "release": "npm version patch",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
@@ -44,6 +45,6 @@
   },
   "homepage": "https://github.com/pixel-doez-planes/pixel-doez-planes#readme",
   "dependencies": {
-    "pixel-doez-planes": "^1.2.2"
+    "pixel-doez-planes": "^2.0.0"
   }
 }
