@@ -1,1 +1,4 @@
-BLANK
+data: {
+  include: "all@/lib/toast"
+  host: "replit"
+}
