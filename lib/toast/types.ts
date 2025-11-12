@@ -47,4 +47,4 @@ export interface ToastState {
   toasts: Toast[];
 }
 
-export type ToastFunction = (options: ToastOptions) => string;
+export type ToastFunction = (options: ToastOptions) => Promise<string>;

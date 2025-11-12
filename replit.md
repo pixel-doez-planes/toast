@@ -133,6 +133,12 @@ import { toast } from 'https://cdn.jsdelivr.net/npm/pixel-doez-planes/dist/index
   - Fixed bottom positions to use `flex-col-reverse` for proper upward stacking
   - Verified all 6 positions work correctly with e2e tests
 - 2024-11-07: **Project complete and ready for publishing**
+- 2024-11-12: **Unified API refactor**
+  - Refactored from separate methods (toast.success, toast.error) to single toast() function
+  - Created CodePen-style split-panel playground for interactive testing
+  - Updated build configuration (vite.config.ts entry: index.ts)
+  - Created comprehensive README.md with unified API documentation
+  - All features tested and confirmed working in playground and demo
 
 ## Technical Implementation Notes
 
