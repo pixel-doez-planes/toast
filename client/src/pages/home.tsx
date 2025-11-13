@@ -117,8 +117,8 @@ export default function Home() {
               </Button>
               <Button
                 onClick={() => showToast("warning")}
-                variant="outline"
-                className="gap-2"
+                variant="default"
+                className="gap-2 bg-amber-500 hover:bg-amber-600 border-amber-600 text-white"
                 data-testid="button-toast-warning"
               >
                 <AlertTriangle className="h-4 w-4" />
@@ -126,8 +126,8 @@ export default function Home() {
               </Button>
               <Button
                 onClick={() => showToast("info")}
-                variant="outline"
-                className="gap-2"
+                variant="default"
+                className="gap-2 bg-blue-500 hover:bg-blue-600 border-blue-600 text-white"
                 data-testid="button-toast-info"
               >
                 <Info className="h-4 w-4" />
@@ -135,8 +135,8 @@ export default function Home() {
               </Button>
               <Button
                 onClick={() => showToast("loading")}
-                variant="outline"
-                className="gap-2"
+                variant="default"
+                className="gap-2 bg-purple-500 hover:bg-purple-600 border-purple-600 text-white"
                 data-testid="button-toast-loading"
               >
                 <Loader2 className="h-4 w-4" />
@@ -144,8 +144,8 @@ export default function Home() {
               </Button>
               <Button
                 onClick={showPromiseToast}
-                variant="secondary"
-                className="gap-2"
+                variant="default"
+                className="gap-2 bg-teal-500 hover:bg-teal-600 border-teal-600 text-white"
                 data-testid="button-toast-promise"
               >
                 <Zap className="h-4 w-4" />
