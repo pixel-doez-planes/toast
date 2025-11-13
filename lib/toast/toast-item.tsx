@@ -25,19 +25,19 @@ const variantIcons = {
 };
 
 const variantStyles = {
-  success: "bg-green-600 dark:bg-green-950/30 border-l-4 border-l-green-500",
-  error: "bg-muted dark:bg-red-950/30 border-l-4 border-l-red-500",
-  warning: "bg-muted dark:bg-amber-950/30 border-l-4 border-l-amber-500",
-  info: "bg-muted dark:bg-blue-950/30 border-l-4 border-l-blue-500",
-  loading: "bg-muted border-l-4 border-l-primary",
+  success: "toast-variant-success",
+  error: "toast-variant-error",
+  warning: "toast-variant-warning",
+  info: "toast-variant-info",
+  loading: "toast-variant-loading",
 };
 
 const iconStyles = {
-  success: "text-green-600 dark:text-green-500",
-  error: "text-red-600 dark:text-red-500",
-  warning: "text-amber-600 dark:text-amber-500",
-  info: "text-blue-600 dark:text-blue-500",
-  loading: "text-primary animate-spin",
+  success: "toast-icon-success",
+  error: "toast-icon-error",
+  warning: "toast-icon-warning",
+  info: "toast-icon-info",
+  loading: "toast-icon-loading animate-spin",
 };
 
 export function ToastItem({ toast, onDismiss, onRemove }: ToastItemProps) {
