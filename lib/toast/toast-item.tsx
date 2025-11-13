@@ -25,7 +25,7 @@ const variantIcons = {
 };
 
 const variantStyles = {
-  success: "bg-muted dark:bg-green-950/30 border-l-4 border-l-green-500",
+  success: "bg-green-600 dark:bg-green-950/30 border-l-4 border-l-green-500",
   error: "bg-muted dark:bg-red-950/30 border-l-4 border-l-red-500",
   warning: "bg-muted dark:bg-amber-950/30 border-l-4 border-l-amber-500",
   info: "bg-muted dark:bg-blue-950/30 border-l-4 border-l-blue-500",
